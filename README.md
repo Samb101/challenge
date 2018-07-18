@@ -1,6 +1,6 @@
 # Installation
 
-`yarn && yarn star`
+`yarn && yarn start`
 
 
 mobx-react-boilerplate
