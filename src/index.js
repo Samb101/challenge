@@ -1,28 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
-import DevTools from "mobx-react-devtools";
+import { Provider } from "mobx-react";
+import Container from "./components/Container";
+import Store from "./store/Store";
+import "./assets/scss/app.scss";
 
-import TodoList from "./components/TodoList";
-import TodoListModel from "./models/TodoListModel";
-import TodoModel from "./models/TodoModel";
-
-const store = new TodoListModel();
+const store = new Store();
 
 render(
-  <div>
-    <DevTools />
-    <TodoList store={store} />
-  </div>,
-  document.getElementById("root")
+    <Provider store={store}>
+        <Container />
+    </Provider>,
+    document.getElementById("root")
 );
-
-store.addTodo("Get Coffee");
-store.addTodo("Write simpler code");
-store.todos[0].finished = true;
-
-setTimeout(() => {
-  store.addTodo("Get a cookie as well");
-}, 2000);
-
-// playing around in the console
-window.store = store;

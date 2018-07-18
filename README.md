@@ -1,3 +1,8 @@
+# Installation
+
+`yarn && yarn start`
+
+
 mobx-react-boilerplate
 =====================
 
